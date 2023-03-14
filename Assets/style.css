@@ -1,6 +1,15 @@
 
 
 
-.sidebar{
+.sidenav{
     background-color: rgb(115, 115, 141);
+    height: 100%;
+    padding: 15px;
+}
+.row.content {
+    height: 1500px;
+}
+
+.current-weather-box, .day{
+    border: 1px solid black ;
 }
