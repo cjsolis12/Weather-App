@@ -24,10 +24,11 @@
             <!-- Side bar for Search Box -->
           <aside class="col-sm-3 sidenav" id="sidenav">
             <h4>Search for a city</h4>
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search City..">
-                <button class="btn btn-outline-info" type="button">Search</button>
-             </div>
+            <form id="user-form">
+                <input type="text" id="city-search" placeholder="Search City..">
+                <button class="btn btn-outline-info" type="submit">Search</button>
+            </form>
+            <div id="search-history"></div>
           </aside>
       <!-- Main current Weather Display -->
           <div class="col-sm-9">
