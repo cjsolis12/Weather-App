@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@100;200;400&family=Quicksand:wght@300;400;500&display=swap');
+
+
 :root {
     --primary: #5F82F4;
     --secondary: #D7DEFB;
@@ -7,6 +10,7 @@
 
 * {
     box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
 
 }
 li{
@@ -33,4 +37,8 @@ li{
 .current-weather-box, .day{
     border: 1px solid rgb(238, 236, 236);
     border-radius: var(--border-radius);
+}
+.class-header{
+    background-color: var(--primary);
+    color: var(--light);
 }
