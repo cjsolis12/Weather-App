@@ -8,7 +8,7 @@ var formSubmitHandler = function (event){
     var city = citySearchEl.value.trim();
 
     if(city){
-    function getCity(city);
+        getCity(city);
         
         var searchedCity = document.createElement("li")
         searchedCity.innerText = city;
@@ -19,7 +19,7 @@ var formSubmitHandler = function (event){
 }
 
 const uvData = function(lat,lon){
-    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`)
         .then(response =>{
         return response.json()
        }).then(data=>console.log(data))
@@ -28,9 +28,8 @@ const uvData = function(lat,lon){
 
 
 var getCity = function (cityName){
-   var url2 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`
-    
-    fetch(url2)
+   var apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=d9ec41326a5c9cfd94ea3263abf80c6c`
+    fetch(apiUrl)
         .then(response =>{
             return response.json()
            }).then(data=>{
