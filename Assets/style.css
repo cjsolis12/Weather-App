@@ -1,15 +1,36 @@
+:root {
+    --primary: #5F82F4;
+    --secondary: #D7DEFB;
+    --light: #F6F5FB;
+    --border-radius: 1rem;
+}
 
+* {
+    box-sizing: border-box;
 
-
+}
+li{
+    list-style-type: none;
+}
+.navbar{
+    background-color: var(--secondary);
+    color: #616266bb;
+    text-align: center;
+}
 .sidenav{
-    background-color: rgb(115, 115, 141);
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
     height: 100%;
     padding: 15px;
 }
+.btn{
+    color: #FFFFFD,
+}
 .row.content {
-    height: 1500px;
+    height: 600px;
 }
 
 .current-weather-box, .day{
-    border: 1px solid black ;
+    border: 1px solid rgb(238, 236, 236);
+    border-radius: var(--border-radius);
 }

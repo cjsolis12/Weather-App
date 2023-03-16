@@ -15,8 +15,7 @@
   </head>
   <body>
     <!-- Top title -->
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg shadow p-3 mb-5 bg-body-tertiary rounded">
         <h1>Weather Dashboard</h1>
       </nav>
       <div class="container-fluid">
@@ -26,29 +25,69 @@
             <h4>Search for a city</h4>
             <form id="user-form">
                 <input type="text" id="city-search" placeholder="Search City..">
-                <button class="btn btn-outline-info" type="submit">Search</button>
+                <button class="btn btn-light" type="submit">Search</button>
             </form>
-            <div id="search-history"></div>
+            <div id="search-history">
+                <ul id="search-history-list" class="list"></ul>
+            </div>
           </aside>
       <!-- Main current Weather Display -->
-          <div class="col-sm-9">
+          <div class="col-sm-9 shadow p-3 mb-5 bg-body-tertiary rounded">
             <main class="row current-weather-box">
                 <div class="col-sm-12">
                     <h2 class="col current-weather-title">City</h2>
+                    <ul class="list-group list-group-flush">
+                      <li>Temp:</li>
+                      <li>Wind:</li>
+                      <li>Humidity:</li>
+                    </ul>
                 </div>
             </main>
             <!-- 5 Day current Weather Cards -->
             <div class="row">
-              <div class="col day">day1</div>
-              <div class="col day">day2</div>
-              <div class="col day">day3</div>
-              <div class="col day">day4</div>
-              <div class="col day">day5</div>
+                <div class="col card shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="card-header">Date</div>
+                    <ul class="list-group list-group-flush">
+                      <li>Temp:</li>
+                      <li>Wind:</li>
+                      <li>Humidity:</li>
+                    </ul>
+                  </div>
+                  <div class="col card shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="card-header">Date</div>
+                    <ul class="list-group list-group-flush">
+                      <li>Temp:</li>
+                      <li>Wind:</li>
+                      <li>Humidity:</li>
+                    </ul>
+                  </div>
+                  <div class="col card shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="card-header">Date</div>
+                    <ul class="list-group list-group-flush">
+                      <li>Temp:</li>
+                      <li>Wind:</li>
+                      <li>Humidity:</li>
+                    </ul>
+                  </div>
+                  <div class="col card shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="card-header">Date</div>
+                    <ul class="list-group list-group-flush">
+                      <li>Temp:</li>
+                      <li>Wind:</li>
+                      <li>Humidity:</li>
+                    </ul>
+                  </div>
+                  <div class="col card shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="card-header">Date</div>
+                    <ul class="list-group list-group-flush">
+                      <li>Temp:</li>
+                      <li>Wind:</li>
+                      <li>Humidity:</li>
+                    </ul>
+                  </div>
             </div>
           </div>
         </div>
-      </div>
-
     <script src="Assets/script.js"></script>
   </body>
 </html>
