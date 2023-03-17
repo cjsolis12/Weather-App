@@ -22,14 +22,6 @@ var formSubmitHandler = function (event){
 }
 }
 
-const uvData = function(lat,lon){
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`)
-        .then(response =>{
-        return response.json()
-       }).then(data=>console.log(data))
-       .catch(console.err)
-    }
-
 var fiveDayWeather = function(lat,lon){
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`)
             .then(res =>{
@@ -47,10 +39,8 @@ var getCity = function (cityName){
             return res.json()  
            }).then(data=>{
             console.log(data)
-            uvData(data.coord.lat,data.coord.lon)
             displayWeather(data)
             fiveDayWeather(data.coord.lat,data.coord.lon)
-            // showFiveDays(data)
            })
  };
 
@@ -88,7 +78,6 @@ var showFiveDays = (data) =>{
         </div>`
   return html
     });
-
     let row = document.querySelector('.weather.row')
     row.innerHTML = cardsHtml.join('')
     
