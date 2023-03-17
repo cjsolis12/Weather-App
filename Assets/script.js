@@ -3,6 +3,10 @@ var citySearchEl = document.querySelector('#city-search')
 var searchHistoryList = document.querySelector('#search-history-list')
 var mainWeatherTitle = document.querySelector('.main-weather-title')
 
+let metric = 'metric'
+
+
+
 var formSubmitHandler = function (event){
     event.preventDefault();
 
@@ -15,8 +19,6 @@ var formSubmitHandler = function (event){
         searchedCity.innerText = city;
         searchHistoryList.append(searchedCity)
         citySearchEl.value = ''
-    displayWeather()
-    // fiveDayWeather()
 }
 }
 
@@ -25,14 +27,18 @@ const uvData = function(lat,lon){
         .then(response =>{
         return response.json()
        }).then(data=>console.log(data))
+       .catch(console.err)
     }
 
-    // const fiveDayWeather = function(lat,lon){
-    //     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`)
-    //         .then(response =>{
-    //         return response.json()
-    //        }).then(data=>console.log(data))
-    //     }
+var fiveDayWeather = function(lat,lon){
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`)
+            .then(res =>{
+            return res.json()
+           }).then(data=>{
+            console.log(data)
+            showFiveDays(data)
+           })
+        }
 
 
 var getCity = function (cityName){
@@ -43,6 +49,8 @@ var getCity = function (cityName){
             console.log(data)
             uvData(data.coord.lat,data.coord.lon)
             displayWeather(data)
+            fiveDayWeather(data.coord.lat,data.coord.lon)
+            // showFiveDays(data)
            })
  };
 
@@ -63,7 +71,28 @@ var displayWeather = function (data){
 
 }
 
+var showFiveDays = (data) =>{
+    var cardsHtml = data.list.map(function(day){
+        var date = new Date(day.dt * 1000)
+        var weatherIcon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+        var tempK = day.main.temp
+        var tempF = Math.floor((tempK - 273.15) * 1.8 + 32)
+        var html = `<div class=col card shadow p-2 m-3 bg-body-tertiary rounded">
+        <h5 class="card-title ">${date.toLocaleDateString()}</h5>
+        <img src="${weatherIcon}" alt="Weather icon" class="card-img">
+        <div class="card-body">
+            <p class="card-text">Temp:${tempF} &#x2109</p>
+            <p class="card-text">Wind:${day.wind.speed}</p>
+            <p class="card-text">Humidity:${day.main.humidity}%</p>
+        </div>
+        </div>`
+  return html
+    });
 
+    let row = document.querySelector('.weather.row')
+    row.innerHTML = cardsHtml.join('')
+    
+}
 
 // When user submits city 
 userFormEl.addEventListener('submit', formSubmitHandler);
