@@ -16,6 +16,7 @@ var formSubmitHandler = function (event){
         searchHistoryList.append(searchedCity)
         citySearchEl.value = ''
     displayWeather()
+    // fiveDayWeather()
 }
 }
 
@@ -26,6 +27,12 @@ const uvData = function(lat,lon){
        }).then(data=>console.log(data))
     }
 
+    // const fiveDayWeather = function(lat,lon){
+    //     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`)
+    //         .then(response =>{
+    //         return response.json()
+    //        }).then(data=>console.log(data))
+    //     }
 
 
 var getCity = function (cityName){

@@ -21,6 +21,11 @@ li{
     color: #616266bb;
     text-align: center;
 }
+aside > h4, #search-history-list{
+    color: var(--light);
+    font-size: 20px;
+    
+}
 .sidenav{
     background-color: var(--primary);
     border-radius: var(--border-radius);
