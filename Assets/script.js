@@ -62,21 +62,22 @@ var displayWeather = function (data){
 }
 
 var showFiveDays = (data) =>{
-    var cardsHtml = data.list.map(function(day){
-        var date = new Date(day.dt * 1000)
-        var weatherIcon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
-        var tempK = day.main.temp
-        var tempF = Math.floor((tempK - 273.15) * 1.8 + 32)
-        var html = `<div class=col card shadow p-2 m-3 bg-body-tertiary rounded">
-        <h5 class="card-title ">${date.toLocaleDateString()}</h5>
-        <img src="${weatherIcon}" alt="Weather icon" class="card-img">
-        <div class="card-body">
-            <p class="card-text">Temp:${tempF} &#x2109</p>
-            <p class="card-text">Wind:${day.wind.speed}</p>
-            <p class="card-text">Humidity:${day.main.humidity}%</p>
-        </div>
-        </div>`
-  return html
+    var cardsHtml = data.list.map((day, ind) =>{
+        if(ind <= 4){
+            var date = new Date(day.dt * 1000)
+            var weatherIcon = `https://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+            var tempK = day.main.temp
+            var tempF = Math.floor((tempK - 273.15) * 1.8 + 32)
+            return `<div class=col card shadow p-2 m-3 bg-body-tertiary rounded">
+            <h5 class="card-title ">${date.toDateString()}</h5>
+            <img src="${weatherIcon}" alt="Weather icon" class="card-img">
+            <div class="card-body">
+                <p class="card-text">Temp:${tempF} &#x2109</p>
+                <p class="card-text">Wind:${day.wind.speed}</p>
+                <p class="card-text">Humidity:${day.main.humidity}%</p>
+            </div>
+            </div>`
+        }
     });
     let row = document.querySelector('.weather.row')
     row.innerHTML = cardsHtml.join('')
