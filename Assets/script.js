@@ -42,32 +42,33 @@ var getCity = function (cityName) {
     })
     .then((data) => {
       console.log(data);
-      displayWeather(data);
+      displayCurrentWeather(data);
       fiveDayWeather(data.coord.lat, data.coord.lon);
     });
 };
 
-var displayWeather = function (data) {
+var displayCurrentWeather = function (data) {
   if (data) {
-    var tempK = data.main.temp;
-    var tempF = Math.floor((tempK - 273.15) * 1.8 + 32);
-    console.log(tempK);
-    console.log(tempF);
-    document.querySelector(".current-weather-title").innerHTML = `${data.name}`;
-    var weatherIcon = document.createElement("img");
-    weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-    mainWeatherTitle.append(weatherIcon);
-    document.querySelector(".temp").innerHTML = `Temp: ${tempF} &#x2109;`;
-    document.querySelector(".wind").innerHTML = `Wind: ${data.wind.speed}`;
-    document.querySelector(
-      ".humidity"
-    ).innerHTML = `Humidity: ${data.main.humidity}%`;
-  }
+    // var date = new Date(data.list[0].dt * 1000);
+        var city = data.name
+        var temperature = Math.round((data.main.temp - 273.15) * 1.8 + 32);
+        var humid = data.main.humidity;
+        var wind = data.wind.speed
+        var icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+        var html = `<div class="col-md">
+                        <h2 class="card-title">${city}</h2>
+                        <img src="${icon}" alt="weather icon">
+                        <p class="card-text">Temp: ${temperature}°F</p>
+                        <p class="card-text">Wind: ${wind}%</p>
+                        <p class="card-text">Humidity: ${humid}%</p>
+                     </div>`}
+        let row = document.querySelector('.current-weather-box')
+        row.innerHTML = html;
 };
 
 var showFiveDays = function (data) {
   var forecastDays = [];
-  var date = new Date(data.list[0].dt * 1000);
+  var date = new Date(data.list[2].dt * 1000);
 
   for (let i = 0; i < 5; i++) {
     var forecast = data.list.find((f) => {
