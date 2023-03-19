@@ -7,12 +7,10 @@ let metric = "metric";
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
-
   var city = citySearchEl.value.trim();
 
   if (city) {
     getCity(city);
-
     var searchedCity = document.createElement("li");
     searchedCity.innerText = city;
     searchHistoryList.append(searchedCity);
