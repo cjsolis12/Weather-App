@@ -15,18 +15,20 @@
   </head>
   <body>
     <!-- Top title -->
-    <nav class="navbar navbar-expand-lg shadow p-3 bg-body-tertiary rounded">
+    <nav class="navbar navbar-expand-lg shadow p-3 rounded">
         <h1>Weather Dashboard</h1>
       </nav>
       <div class="container-lg">
         <div class="row content">
             <!-- Side bar for Search Box -->
           <aside class="col-sm-3 sidenav" id="sidenav">
-            <h4>Search for a city</h4>
-            <form id="user-form">
-                <input type="text" id="city-search" placeholder="Search City..">
-                <button class="btn btn-light" type="submit">Search</button>
-            </form>
+            <div class="city-form">
+              <h4>Search for a city</h4>
+              <form id="user-form">
+                  <input type="text" id="city-search" placeholder="Search City..">
+                  <button class="btn btn-light" type="submit">Search</button>
+              </form>
+            </div>
             <div id="search-history">
                 <ul id="search-history-list" class="list">Search History</ul>
             </div>
@@ -50,5 +52,10 @@
           </div>
         </div>
     <script src="Assets/script.js"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous"
+  ></script>
   </body>
 </html>

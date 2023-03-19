@@ -11,20 +11,24 @@
 * {
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
-
 }
 li{
     list-style-type: none;
 }
 .navbar{
     background-color: var(--secondary);
-    color: #616266bb;
+    color: #4e4e50bb;
     text-align: center;
 }
 aside > h4, #search-history-list{
     color: var(--light);
     font-size: 20px;
-    
+}
+.city-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
 }
 .sidenav{
     background-color: var(--primary);
