@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@100;200;400&family=Quicksand:wght@300;400;500&display=swap');
 
-
 :root {
     --primary: #5F82F4;
     --secondary: #D7DEFB;
@@ -12,6 +11,20 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
+/* Page Title */
+.navbar{
+    background-color: var(--secondary);
+    color: #4e4e50bb;
+    text-align: center;
+}
+/* Aside Container to search for cities */
+.sidenav{
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
+    height: 100%;
+    padding: 15px;
+}
+/* li tags for Cities searched */
 #search-history-list > li{
     list-style-type: none;
     border: 1px solid rgb(238, 236, 236);
@@ -19,40 +32,16 @@
     background-color: var(--light);
     text-align: center;
     color: #5F82F4;
-}
-.navbar{
-    background-color: var(--secondary);
-    color: #4e4e50bb;
-    text-align: center;
-}
-aside > h4, #search-history-list{
-    color: var(--light);
-    font-size: 20px;
-}
-.city-form{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 20px;
-}
-.sidenav{
-    background-color: var(--primary);
-    border-radius: var(--border-radius);
-    height: 100%;
-    padding: 15px;
-}
-.btn{
-    color: #FFFFFD,
-}
-.row.content {
-    height: 600px;
+    font-size: 16px;
 }
 
-.current-weather-box, .day{
-    border: 1px solid rgb(238, 236, 236);
-    border-radius: var(--border-radius);
+.city-form{
+    display: flex;
+    flex-direction: column; 
+    margin: 12px;
 }
-.class-header{
-    background-color: var(--primary);
-    color: var(--light);
+
+.row.content {
+    height: 1000px;
+
 }
