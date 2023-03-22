@@ -3,20 +3,38 @@ var citySearchEl = document.querySelector("#city-search");
 var searchHistoryList = document.querySelector("#search-history-list");
 var mainWeatherTitle = document.querySelector(".main-weather-title");
 
-let metric = "metric";
-
 var formSubmitHandler = function (event) {
   event.preventDefault();
   var city = citySearchEl.value.trim();
 
   if (city) {
     getCity(city);
-    var searchedCity = document.createElement("li");
+    var searchedCity = document.createElement("button");
     searchedCity.innerText = city;
     searchHistoryList.append(searchedCity);
     citySearchEl.value = "";
-  }
+    localStorage.setItem('searchHistory', city)
+  } 
 };
+
+// New button for each city searched on aside bar
+var searchHistory = localStorage.getItem('searchHistory');
+if(searchHistory){
+  var cities = searchHistory.split(",")
+  cities.forEach(function(city){
+    var searchedCity = document.createElement("button");
+    searchedCity.innerText = city;
+    searchHistoryList.append(searchedCity)
+});
+}
+
+// When button is clicked, city weather is displayed 
+searchHistoryList.addEventListener("click", function(event) {
+  if (event.target.matches("button")) {
+    var city = event.target.innerText;
+    getCity(city);
+  }
+});
 
 var fiveDayWeather = function (lat, lon) {
   fetch(
@@ -42,7 +60,9 @@ var getCity = function (cityName) {
       console.log(data);
       displayCurrentWeather(data);
       fiveDayWeather(data.coord.lat, data.coord.lon);
-    });
+      showFiveDays(data);
+    })
+    .catch(error => console.log(error));
 };
 
 var displayCurrentWeather = function (data) {
