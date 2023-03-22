@@ -2,7 +2,11 @@ var userFormEl = document.querySelector("#user-form");
 var citySearchEl = document.querySelector("#city-search");
 var searchHistoryList = document.querySelector("#search-history-list");
 var mainWeatherTitle = document.querySelector(".main-weather-title");
+var allSearchedCities = []
 
+
+
+// Function when search is clicked 
 var formSubmitHandler = function (event) {
   event.preventDefault();
   var city = citySearchEl.value.trim();
@@ -13,15 +17,15 @@ var formSubmitHandler = function (event) {
     searchedCity.innerText = city;
     searchHistoryList.append(searchedCity);
     citySearchEl.value = "";
-    localStorage.setItem('searchHistory', city)
+    allSearchedCities.push(city)
+    localStorage.setItem('searchHistory', JSON.stringify(allSearchedCities))
   } 
 };
 
 // New button for each city searched on aside bar
-var searchHistory = localStorage.getItem('searchHistory');
+var searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 if(searchHistory){
-  var cities = searchHistory.split(",")
-  cities.forEach(function(city){
+  searchHistory.forEach(function(city){
     var searchedCity = document.createElement("button");
     searchedCity.innerText = city;
     searchHistoryList.append(searchedCity)
@@ -36,6 +40,7 @@ searchHistoryList.addEventListener("click", function(event) {
   }
 });
 
+// API call for 5 day array 
 var fiveDayWeather = function (lat, lon) {
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`
@@ -49,6 +54,7 @@ var fiveDayWeather = function (lat, lon) {
     });
 };
 
+// API call to current city
 var getCity = function (cityName) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=d9ec41326a5c9cfd94ea3263abf80c6c`
