@@ -6,7 +6,6 @@ var clearBtn = document.querySelector("#clear-btn");
 var allSearchedCities = []
 
 
-
 // Function when search is clicked 
 var formSubmitHandler = function (event) {
   event.preventDefault();
@@ -89,8 +88,10 @@ var displayCurrentWeather = function (data) {
         var humid = data.main.humidity;
         var wind = data.wind.speed
         var icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+        var date = new Date().toLocaleDateString()
         var html = `<div class="col-md">
                         <h2 class="card-title">${city}</h2>
+                        <p>${date}</p>
                         <img src="${icon}" alt="weather icon">
                         <p class="card-text">Temp: ${temperature}°F</p>
                         <p class="card-text">Wind: ${wind}%</p>
