@@ -25,16 +25,23 @@
     padding: 15px;
 }
 /* li tags for Cities searched */
-#search-history-list > li{
-    list-style-type: none;
+#search-history-list{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var(--light);
+    font-size: 25px;
+}
+
+.cities{
     border: 1px solid rgb(238, 236, 236);
-    border-radius: var(--border-radius);
+    border-radius: 5px;
+    margin: 5px;
     background-color: var(--light);
     text-align: center;
     color: #5F82F4;
     font-size: 16px;
 }
-
 .city-form{
     display: flex;
     flex-direction: column; 

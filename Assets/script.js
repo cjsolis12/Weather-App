@@ -27,6 +27,7 @@ var searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 if(searchHistory){
   searchHistory.forEach(function(city){
     var searchedCity = document.createElement("button");
+    searchedCity.setAttribute("class", "cities")
     searchedCity.innerText = city;
     searchHistoryList.append(searchedCity)
 });
