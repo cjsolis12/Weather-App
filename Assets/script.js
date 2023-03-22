@@ -47,6 +47,7 @@ searchHistoryList.addEventListener("click", function(event) {
 // Search History Clear button
 clearBtn.addEventListener('click', () => {
   searchHistoryList.innerHTML = "";
+  localStorage.removeItem('searchHistory');
 })
 
 // API call for 5 day array 
@@ -101,12 +102,15 @@ var displayCurrentWeather = function (data) {
 
 var showFiveDays = function (data) {
   var forecastDays = [];
-  var date = new Date(data.list[2].dt * 1000);
+  var today = new Date();
+  var tomorrow = new Date(today)
+  tomorrow.setDate(tomorrow.getDate() + 1)
+  // var date = new Date(data.list[2].dt * 1000);
 
   for (let i = 0; i < 5; i++) {
     var forecast = data.list.find((f) => {
       var fDate = new Date(f.dt * 1000);
-      return fDate.getDate() === date.getDate();
+      return fDate.getDate() === tomorrow.getDate();
     });
 
     if (forecast) {
@@ -119,7 +123,7 @@ var showFiveDays = function (data) {
         `<div class="col-md">
                 <div class="card">
                 <div class="card-body">
-                <h5 class="card-title">${date.toLocaleDateString()}</h5>
+                <h5 class="card-title">${tomorrow.toLocaleDateString()}</h5>
                 <img src="${icon}" alt="weather icon">
                 <p class="card-text">Temp: ${temperature}°F</p>
                 <p class="card-text">Wind: ${wind}%</p>
@@ -129,7 +133,7 @@ var showFiveDays = function (data) {
         </div>
       `);
     }
-    date.setDate(date.getDate()+1);
+    tomorrow.setDate(tomorrow.getDate()+1);
   }
   let row = document.querySelector('.weather.row')
     row.innerHTML = forecastDays.join('')
