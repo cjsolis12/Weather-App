@@ -50,6 +50,7 @@
     margin: 12px;
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
 
 .row.content {
