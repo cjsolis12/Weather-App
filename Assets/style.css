@@ -48,6 +48,8 @@
     display: flex;
     flex-direction: column; 
     margin: 12px;
+    justify-content: center;
+    text-align: center;
 }
 
 .row.content {
