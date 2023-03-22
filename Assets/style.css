@@ -19,6 +19,8 @@
 }
 /* Aside Container to search for cities */
 .sidenav{
+    display: flex;
+    flex-direction: column;
     background-color: var(--primary);
     border-radius: var(--border-radius);
     height: 100%;

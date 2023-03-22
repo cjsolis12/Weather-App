@@ -2,6 +2,7 @@ var userFormEl = document.querySelector("#user-form");
 var citySearchEl = document.querySelector("#city-search");
 var searchHistoryList = document.querySelector("#search-history-list");
 var mainWeatherTitle = document.querySelector(".main-weather-title");
+var clearBtn = document.querySelector("#clear-btn");
 var allSearchedCities = []
 
 
@@ -9,9 +10,9 @@ var allSearchedCities = []
 // Function when search is clicked 
 var formSubmitHandler = function (event) {
   event.preventDefault();
-  var city = citySearchEl.value.trim();
+  var city = citySearchEl.value.trim()
  
-  if (city) {
+  if (city && !allSearchedCities.includes(city)) {
     getCity(city);
     var searchedCity = document.createElement("button");
     searchedCity.setAttribute("class", "cities")
@@ -26,6 +27,7 @@ var formSubmitHandler = function (event) {
 // New button for each city searched on aside bar
 var searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 if(searchHistory){
+  allSearchedCities = searchHistory;
   searchHistory.forEach(function(city){
     var searchedCity = document.createElement("button");
     searchedCity.setAttribute("class", "cities")
@@ -41,6 +43,11 @@ searchHistoryList.addEventListener("click", function(event) {
     getCity(city);
   }
 });
+
+// Search History Clear button
+clearBtn.addEventListener('click', () => {
+  searchHistoryList.innerHTML = "";
+})
 
 // API call for 5 day array 
 var fiveDayWeather = function (lat, lon) {
