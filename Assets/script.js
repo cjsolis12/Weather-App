@@ -10,10 +10,11 @@ var allSearchedCities = []
 var formSubmitHandler = function (event) {
   event.preventDefault();
   var city = citySearchEl.value.trim();
-
+ 
   if (city) {
     getCity(city);
     var searchedCity = document.createElement("button");
+    searchedCity.setAttribute("class", "cities")
     searchedCity.innerText = city;
     searchHistoryList.append(searchedCity);
     citySearchEl.value = "";
