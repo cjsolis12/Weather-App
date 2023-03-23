@@ -11,26 +11,31 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <script src="https://kit.fontawesome.com/5926ff110b.js" crossorigin="anonymous"></script>
     <title>What's the Weather</title>
   </head>
   <body>
     <!-- Top title -->
     <nav class="navbar navbar-expand-lg shadow p-3">
-        <h1>Weather Dashboard</h1>
-      </nav>
-      <div class="container-lg">
+      <div class="container-fluid">
+        <h1>Weather Dashboard <i class="fa-solid fa-cloud-moon"></i></h1>
+        <form id="user-form" class="d-flex">
+            <input type="text" id="city-search" placeholder="Search City..">
+            <button class="btn btn-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+    </nav>
+      <div class="container">
         <div class="row content">
             <!-- Side bar for Search Box -->
           <aside class="col-sm-3 sidenav" id="sidenav">
-            <div class="city-form">
-              <h4>Search for a city</h4>
-              <form id="user-form">
-                  <input type="text" id="city-search" placeholder="Search City..">
-                  <button class="btn btn-light" type="submit">Search</button>
-              </form>
+            <div class="card search-city-card">
+              <div class="card-body">
+                <h5 class="card-title">Search History</h5>
+                <div id="search-history-list" class="list-group"></div>
+                <button id="clear-btn"class="btn btn-light" type="submit" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Clear</button>
+              </div>
             </div>
-            <div id="search-history-list" class="list-group">Search History</div>
-            <button id="clear-btn"class="btn btn-light" type="submit" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Clear</button>
           </aside>
           <!-- Main current Weather Display -->
           <div class="col-sm-9">

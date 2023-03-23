@@ -11,14 +11,15 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
-/* Page Title */
+/* Page Title Search bar*/
 .navbar{
+    justify-content: space-between;
     background-color: var(--secondary);
     color: #4e4e50bb;
     text-align: center;
 }
 /* Aside Container to search for cities */
-.sidenav{
+.search-city-card{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,16 +48,9 @@
     color: #5F82F4;
     font-size: 16px;
 }
-.city-form{
-    display: flex;
-    flex-direction: column; 
-    margin: 12px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
+
 
 .row.content {
-    height: 1000px;
+    height: auto;
 
 }
