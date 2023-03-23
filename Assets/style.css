@@ -1,56 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@100;200;400&family=Quicksand:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Poppins:wght@100;200;400&family=Quicksand:wght@300;400;500&display=swap");
 
 :root {
-    --primary: #5F82F4;
-    --secondary: #D7DEFB;
-    --light: #F6F5FB;
-    --border-radius: 1rem;
+  --primary: #5f82f4;
+  --secondary: #d7defb;
+  --light: #f6f5fb;
+  --border-radius: 1rem;
 }
 
 * {
-    box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 /* Page Title Search bar*/
-.navbar{
-    background-color: var(--secondary);
-    color: #4e4e50bb;
-    text-align: center;
+.navbar {
+  background-color: var(--secondary);
+  color: #4e4e50bb;
+  text-align: center;
 }
 /* Aside Container to search for cities */
-.search-city-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--primary);
-    border-radius: var(--border-radius);
-    height: 100%;
-    padding: 15px;
+.search-city-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary);
+  border-radius: var(--border-radius);
+  height: 100%;
+  padding: 15px;
 }
 /* li tags for Cities searched */
-.search-history-list{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: var(--light);
-    font-size: 25px;
+.search-history-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--light);
+  font-size: 25px;
 }
 
-.cities{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgb(238, 236, 236);
-    border-radius: 5px;
-    margin: 5px;
-    background-color: var(--light);
-    text-align: center;
-    color: #5F82F4;
-    font-size: 16px;
+.cities {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(238, 236, 236);
+  border-radius: 5px;
+  margin: 5px;
+  background-color: var(--light);
+  text-align: center;
+  color: #5f82f4;
+  font-size: 16px;
 }
-
 
 .row.content {
-    height: auto;
-
+  height: auto;
 }
-
