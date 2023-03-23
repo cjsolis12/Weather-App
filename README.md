@@ -10,7 +10,7 @@ This is a weather app using the api https://api.openweathermap.org/data/2.5/fore
 
 ## Usage
 
-![Wepage screenshot](weatherAppScreenshot.png)
+![Wepage screenshot](/Assets/weatherAppScreenshot.png)
 
 https://cjsolis12.github.io/Weather-App/
 
