@@ -122,7 +122,7 @@ var showFiveDays = function (data) {
 
       forecastDays.push(
         `<div class="col-md">
-                <div class="card">
+                <div class="card five-day-weather">
                 <div class="card-body">
                 <h5 class="card-title">${tomorrow.toLocaleDateString()}</h5>
                 <img src="${icon}" alt="weather icon">
