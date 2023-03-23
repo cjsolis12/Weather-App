@@ -90,7 +90,7 @@ var displayCurrentWeather = function (data) {
         var icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
         var date = new Date().toLocaleDateString()
         var html = `<div class="col-md">
-                        <h2 class="card-title">${city}</h2>
+                        <h2 class="card-title text-primary">${city}</h2>
                         <p>${date}</p>
                         <img src="${icon}" alt="weather icon">
                         <p class="card-text">Temp: ${temperature}°F</p>
@@ -121,10 +121,10 @@ var showFiveDays = function (data) {
       var icon = `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
 
       forecastDays.push(
-        `<div class="col-md">
-                <div class="card five-day-weather">
+        `<div class="col-md ">
+                <div class="card">
                 <div class="card-body">
-                <h5 class="card-title">${tomorrow.toLocaleDateString()}</h5>
+                <h5 class="card-title text-primary">${tomorrow.toLocaleDateString()}</h5>
                 <img src="${icon}" alt="weather icon">
                 <p class="card-text">Temp: ${temperature}°F</p>
                 <p class="card-text">Wind: ${wind}%</p>
